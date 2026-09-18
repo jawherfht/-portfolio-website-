@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jawher Farhat — AI Engineering &amp; Cybersecurity</title>
+<meta name="description" content="Portfolio de Jawher Farhat — Élève Ingénieur en Cybersécurité &amp; Intelligence Artificielle (ESPRIT / STB).">
+
+<!-- Open Graph / Facebook / LinkedIn / WhatsApp -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Jawher Farhat — AI Engineering &amp; Security">
+<meta property="og:description" content="Portfolio de Jawher Farhat — Élève Ingénieur en Cybersécurité &amp; Intelligence Artificielle (ESPRIT / STB).">
+<meta property="og:image" content="og-preview.jpg">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:title" content="Jawher Farhat — AI Engineering &amp; Security">
+<meta property="twitter:description" content="Portfolio de Jawher Farhat — Élève Ingénieur en Cybersécurité &amp; Intelligence Artificielle (ESPRIT / STB).">
+<meta property="twitter:image" content="og-preview.jpg">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%230d1420%22/><text x=%2250%22 y=%2266%22 font-size=%2255%22 font-family=%22monospace%22 fill=%22%2322d3ee%22 text-anchor=%22middle%22>J</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:#0a0e16;
+    --bg-alt:#0d1420;
+    --surface:#101826;
+    --surface-2:#141e2e;
+    --border:#1e2a3d;
+    --text:#e7edf5;
+    --text-dim:#93a1b5;
+    --text-faint:#5c6b82;
+    --accent:#22d3ee;
+    --accent-2:#8b7cf6;
+    --accent-3:#34d399;
+    --danger:#f87171;
+    --radius:14px;
+    --maxw:1180px;
+    --shadow: 0 20px 60px -20px rgba(0,0,0,.6);
+  }
+  html.light{
+    --bg:#f5f7fa;
+    --bg-alt:#eef1f6;
+    --surface:#ffffff;
+    --surface-2:#f1f4f9;
+    --border:#dfe4ec;
+    --text:#0f1520;
+    --text-dim:#4d5b70;
+    --text-faint:#8895a7;
+    --shadow: 0 20px 50px -25px rgba(15,20,30,.25);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',system-ui,-apple-system,Segoe UI,sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    transition:background .25s ease, color .25s ease;
+    overflow-x:hidden;
+  }
+  .mono{font-family:'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;}
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .container{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+
+  /* ---------- REVEAL ANIMATIONS ---------- */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+  }
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:sticky; top:0; z-index:50;
+    background:color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--border);
+    transition: background .25s ease;
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;gap:20px;}
+  .brand{display:flex;align-items:center;gap:12px;}
+  .brand-mark{
+    width:38px;height:38px;border-radius:9px;
+    background:linear-gradient(135deg,var(--accent),var(--accent-2));
+    display:flex;align-items:center;justify-content:center;
+    font-weight:800;color:#04121a;font-size:16px;flex:none;
+    box-shadow: 0 4px 12px rgba(34, 211, 238, 0.25);
+    transition: transform 0.3s ease;
+  }
+  .brand-mark:hover{transform: scale(1.06) rotate(-4deg);}
+  .brand-name{font-weight:700;font-size:15px;line-height:1.2;}
+  .brand-sub{font-size:10.5px;letter-spacing:.06em;color:var(--text-faint);font-family:'JetBrains Mono',monospace;}
+  nav.links{display:flex;gap:24px;}
+  nav.links a{font-size:14px;color:var(--text-dim);transition:color .15s ease;}
+  nav.links a:hover{color:var(--accent);}
+  .nav-actions{display:flex;align-items:center;gap:10px;}
+  .pill-toggle{
+    display:flex;border:1px solid var(--border);border-radius:8px;overflow:hidden;
+    font-family:'JetBrains Mono',monospace;font-size:11px;background:var(--surface);
+  }
+  .pill-toggle button{
+    background:transparent;border:none;color:var(--text-dim);padding:7px 11px;cursor:pointer;
+    transition: all .15s ease;
+  }
+  .pill-toggle button.active{background:var(--surface-2);color:var(--accent);font-weight:600;}
+  .icon-btn{
+    width:34px;height:34px;border-radius:8px;border:1px solid var(--border);
+    background:var(--surface);color:var(--text);display:flex;align-items:center;justify-content:center;cursor:pointer;
+    transition: border-color .15s, transform .15s;
+  }
+  .icon-btn:hover{border-color:var(--accent);transform:translateY(-1px);}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:10px 18px;border-radius:9px;font-size:13.5px;font-weight:600;cursor:pointer;
+    border:1px solid transparent; white-space:nowrap;
+    transition: all .2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .btn-primary{
+    background:linear-gradient(135deg,var(--accent),var(--accent-2));
+    color:#04121a;
+    box-shadow: 0 4px 16px color-mix(in srgb, var(--accent) 30%, transparent);
+  }
+  .btn-primary:hover{
+    transform:translateY(-2px);
+    box-shadow: 0 6px 20px color-mix(in srgb, var(--accent) 45%, transparent);
+  }
+  .btn-outline{background:var(--surface);border-color:var(--border);color:var(--text);}
+  .btn-outline:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px);}
+  .hide-sm{display:inline-flex;}
+  @media (max-width:980px){
+    nav.links{display:none;}
+    .hide-sm{display:none;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{padding:80px 0 50px;position:relative;overflow:hidden;}
+  #hero-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.55;
+  }
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;position:relative;z-index:1;}
+  @media (max-width:980px){.hero-grid{grid-template-columns:1fr;}}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--accent);
+    border:1px solid var(--border);padding:6px 14px;border-radius:999px;margin-bottom:22px;background:var(--surface);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+  .eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent-3);animation:pulse 2s infinite;}
+  @keyframes pulse { 0%,100%{transform:scale(1);opacity:1;} 50%{transform:scale(1.4);opacity:0.6;} }
+  
+  h1.hero-title{font-size:clamp(34px,5vw,52px);line-height:1.1;font-weight:800;letter-spacing:-.02em;margin:0 0 20px;}
+  h1.hero-title .grad{
+    display:block;background:linear-gradient(100deg,var(--accent),var(--accent-2) 60%, var(--accent-3));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .hero-text{font-size:16.5px;color:var(--text-dim);max-width:540px;margin:0 0 30px;line-height:1.6;}
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:30px;}
+  .socials{display:flex;gap:18px;flex-wrap:wrap;align-items:center;}
+  .social-item{display:flex;align-items:center;gap:8px;font-size:13.5px;color:var(--text-dim);transition:color .15s;}
+  .social-item svg{width:16px;height:16px;flex:none;color:var(--accent);}
+  .social-item a:hover{color:var(--accent);}
+
+  /* terminal panel */
+  .panel{
+    background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+    box-shadow:var(--shadow); overflow:hidden;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+  }
+  .panel:hover { border-color: color-mix(in srgb, var(--accent) 40%, var(--border)); transform: translateY(-3px); }
+  .panel-head{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:12px 16px;border-bottom:1px solid var(--border);background:var(--surface-2);
+  }
+  .dots{display:flex;gap:7px;}
+  .dots span{width:10px;height:10px;border-radius:50%;}
+  .dots span:nth-child(1){background:#ff5f56;}
+  .dots span:nth-child(2){background:#ffbd2e;}
+  .dots span:nth-child(3){background:#27c93f;}
+  .panel-title{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--text-faint);}
+  .replay-btn{
+    font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-dim);
+    background:transparent;border:1px solid var(--border);border-radius:6px;padding:4px 10px;cursor:pointer;
+    transition: all 0.15s ease;
+  }
+  .replay-btn:hover{color:var(--accent);border-color:var(--accent);background:var(--surface);}
+  .term-body{
+    padding:20px 18px;font-family:'JetBrains Mono',monospace;font-size:12.6px;line-height:1.8;
+    min-height:230px;color:var(--text-dim);
+  }
+  .term-line{opacity:0;min-height:1.8em;white-space:pre-wrap;word-break:break-word;transform:translateY(4px);transition:all 0.3s ease;}
+  .term-line.show{opacity:1;transform:translateY(0);}
+  .term-line .c-accent{color:var(--accent);}
+  .term-line .c-ok{color:var(--accent-3);}
+  .term-line .c-warn{color:#f5b642;}
+  .term-line .c-dim{color:var(--text-faint);}
+  .term-cursor{display:inline-block;width:7px;height:13px;background:var(--accent);vertical-align:-2px;animation:blink 1s step-start infinite;}
+  @keyframes blink{50%{opacity:0;}}
+  .sim-badge{
+    display:flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:11px;
+    color:var(--text-faint);padding:9px 16px;border-top:1px solid var(--border);background:var(--surface-2);
+  }
+
+  /* stats strip */
+  .stats{
+    display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+    margin-top:56px;background:var(--surface);
+  }
+  .stats div{padding:26px 20px;border-left:1px solid var(--border);text-align:center;}
+  .stats div:first-child{border-left:none;}
+  @media (max-width:760px){.stats{grid-template-columns:repeat(2,1fr);} .stats div:nth-child(3){border-left:none;}}
+  .stat-k{font-weight:800;font-size:28px;margin-bottom:4px;color:var(--accent);font-family:'JetBrains Mono',monospace;}
+  .stat-v{font-size:13px;color:var(--text-dim);font-weight:500;}
+
+  /* ---------- SECTIONS ---------- */
+  section{padding:90px 0;}
+  .section-head{max-width:680px;margin-bottom:48px;}
+  .section-head h2{font-size:clamp(26px,3.5vw,36px);font-weight:800;letter-spacing:-.01em;margin:14px 0 12px;}
+  .section-head p{color:var(--text-dim);font-size:15.5px;margin:0;line-height:1.6;}
+
+  .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+  @media (max-width:980px){.grid-4{grid-template-columns:repeat(2,1fr);} .grid-3{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:620px){.grid-4,.grid-3,.grid-2{grid-template-columns:1fr;}}
+
+  .card{
+    background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+    padding:26px;transition:all .25s ease;position:relative;overflow:hidden;
+  }
+  .card:hover{
+    border-color:color-mix(in srgb, var(--accent) 45%, var(--border));
+    transform:translateY(-4px);
+    box-shadow: 0 12px 30px -10px rgba(0,0,0,0.3);
+  }
+  .card-icon{
+    width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;
+    background:var(--surface-2);color:var(--accent);margin-bottom:18px;border:1px solid var(--border);
+  }
+  .card h3{font-size:17px;margin:0 0 10px;font-weight:700;}
+  .card p{font-size:14px;color:var(--text-dim);margin:0;line-height:1.55;}
+
+  /* Education card style */
+  .edu-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 26px;
+    transition: all 0.25s ease;
+    border-left: 4px solid var(--accent);
+  }
+  .edu-card:hover { transform: translateY(-3px); border-color: var(--accent); }
+  .edu-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 10px; margin-bottom: 8px; }
+  .edu-school { font-weight: 800; font-size: 18px; color: var(--text); }
+  .edu-date { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: var(--accent); font-weight: 600; }
+  .edu-degree { font-weight: 600; font-size: 15px; color: var(--accent-2); margin-bottom: 12px; }
+
+  /* experience timeline */
+  .timeline{border-left:2px solid var(--border);padding-left:30px;display:flex;flex-direction:column;gap:40px;margin-left:6px;}
+  .tl-item{position:relative;}
+  .tl-item::before{
+    content:"";position:absolute;left:-37px;top:4px;width:12px;height:12px;border-radius:50%;
+    background:var(--bg);border:3px solid var(--accent);
+    transition: background 0.3s, transform 0.3s;
+  }
+  .tl-item:hover::before { background: var(--accent); transform: scale(1.3); }
+  .tl-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px;margin-bottom:8px;}
+  .tl-role{font-weight:700;font-size:17px;}
+  .tl-org{color:var(--accent);font-size:14px;font-weight:600;}
+  .tl-date{margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--text-faint);background:var(--surface-2);padding:4px 10px;border-radius:6px;}
+  .tl-item ul{margin:12px 0 0;padding-left:18px;color:var(--text-dim);font-size:14px;line-height:1.6;}
+  .tl-item li{margin-bottom:6px;}
+
+  /* projects */
+  .proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  @media (max-width:980px){.proj-grid{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:620px){.proj-grid{grid-template-columns:1fr;}}
+  .proj-card{
+    background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+    padding:24px;display:flex;flex-direction:column;gap:14px;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .proj-card:hover{
+    border-color:var(--accent);
+    transform:translateY(-5px);
+    box-shadow: 0 16px 36px -12px rgba(34, 211, 238, 0.15);
+  }
+  .proj-card.featured{
+    grid-column:span 2;
+    background:linear-gradient(160deg,var(--surface),var(--surface-2));
+    border-color: color-mix(in srgb, var(--accent) 30%, var(--border));
+  }
+  @media (max-width:620px){.proj-card.featured{grid-column:span 1;}}
+  .proj-tag{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--accent);font-weight:600;}
+  .proj-card h3{margin:0;font-size:18px;font-weight:700;}
+  .proj-card p{margin:0;font-size:14px;color:var(--text-dim);line-height:1.55;flex:1;}
+  .proj-link{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:600;color:var(--text);margin-top:6px;transition:color .15s;}
+  .proj-link svg{width:15px;height:15px;transition:transform .2s;}
+  .proj-link:hover{color:var(--accent);}
+  .proj-link:hover svg{transform:translate(2px, -2px);}
+
+  /* stack */
+  .stack-group{margin-bottom:28px;}
+  .stack-group h4{
+    font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--text-faint);
+    margin:0 0 14px;letter-spacing:.04em;text-transform:uppercase;
+  }
+  .chip-row{display:flex;flex-wrap:wrap;gap:10px;}
+  .chip{
+    font-size:13px;padding:8px 14px;border-radius:8px;background:var(--surface);border:1px solid var(--border);color:var(--text-dim);
+    transition: all 0.2s ease;
+  }
+  .chip:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+  
+  .certs{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:36px;}
+  @media (max-width:760px){.certs{grid-template-columns:1fr;}}
+  .cert-chip{
+    display:flex;align-items:center;gap:12px;font-size:13.5px;color:var(--text-dim);
+    border:1px solid var(--border);border-radius:10px;padding:12px 16px;background:var(--surface);
+    transition: border-color .2s ease, transform .2s ease;
+  }
+  .cert-chip:hover { border-color: var(--accent-3); transform: translateY(-2px); }
+  .cert-chip svg{width:18px;height:18px;color:var(--accent-3);flex:none;}
+
+  /* contact box */
+  .contact-box {
+    background: linear-gradient(145deg, var(--surface), var(--surface-2));
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 44px;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 40px;
+    align-items: center;
+    box-shadow: var(--shadow);
+  }
+  @media (max-width:860px){ .contact-box{ grid-template-columns: 1fr; padding: 28px; } }
+  .contact-list{display:flex;flex-direction:column;gap:16px;}
+  .contact-row{display:flex;align-items:center;gap:12px;font-size:14.5px;color:var(--text-dim);}
+  .contact-row svg{width:18px;height:18px;color:var(--accent);flex:none;}
+  .contact-row a:hover{color:var(--accent);}
+
+  /* footer */
+  footer{border-top:1px solid var(--border);padding:28px 0;background:var(--bg-alt);}
+  .footer-inner{display:flex;align-items:center;justify-content:space-between;font-size:13px;color:var(--text-faint);}
+</style>
+</head>
+
+<body>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <div class="brand">
+      <div class="brand-mark">J</div>
+      <div>
+        <div class="brand-name">Jawher Farhat</div>
+        <div class="brand-sub" data-i18n="nav.sub">AI · SECURITY · SOFTWARE</div>
+      </div>
+    </div>
+    <nav class="links">
+      <a href="#about" data-i18n="nav.about">À propos</a>
+      <a href="#education" data-i18n="nav.education">Formation</a>
+      <a href="#experience" data-i18n="nav.experience">Expérience</a>
+      <a href="#projects" data-i18n="nav.projects">Projets</a>
+      <a href="#stack" data-i18n="nav.stack">Compétences</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <div class="pill-toggle">
+        <button id="lang-fr" class="active" onclick="setLang('fr')">FR</button>
+        <button id="lang-en" onclick="setLang('en')">EN</button>
+      </div>
+      <button class="icon-btn" onclick="toggleTheme()" title="Basculer le thème">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+      <a class="btn btn-primary hide-sm" href="mailto:jawherfarhar1@gmail.com" data-i18n="nav.contactBtn">Me contacter</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero" id="about">
+    <canvas id="hero-canvas"></canvas>
+    <div class="container hero-grid">
+      <div class="reveal">
+        <div class="eyebrow" data-i18n="hero.eyebrow">// ÉLÈVE INGÉNIEUR EN IA (ESPRIT)</div>
+        <h1 class="hero-title">
+          Jawher Farhat
+          <span class="grad" data-i18n="hero.subtitle">Artificial Intelligence &amp; Security</span>
+        </h1>
+        <p class="hero-text" data-i18n="hero.text">
+          Élève ingénieur en 3ème année à ESPRIT (spécialisation IA) et stagiaire en sécurité IT à la STB. 
+          Passionné par la conception de systèmes intelligents combinant Machine Learning, Deep Learning, vision par ordinateur et cybersécurité opérationnelle.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#projects" data-i18n="hero.btn1">Découvrir mes projets</a>
+          <a class="btn btn-outline" href="mailto:jawherfarhar1@gmail.com" data-i18n="hero.btn2">Télécharger CV / Contact</a>
+        </div>
+        <div class="socials">
+          <span class="social-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.5 7-11.5a7 7 0 10-14 0C5 14.5 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+            <span data-i18n="hero.location">Ariana, Tunisie</span>
+          </span>
+          <span class="social-item">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 00-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.7.1-.7 1.2.1 1.9 1.2 1.9 1.2 1.1 1.9 2.9 1.3 3.6 1 .1-.8.4-1.3.8-1.6-2.6-.3-5.4-1.3-5.4-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 016 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0012 .3z"/></svg>
+            <a href="https://github.com/jawherfht" target="_blank" rel="noopener">jawherfht</a>
+          </span>
+          <span class="social-item">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.1c.5-.9 1.8-1.9 3.7-1.9 4 0 4.7 2.6 4.7 6V21h-4v-5.4c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V21h-4V9z"/></svg>
+            <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+          </span>
+        </div>
+      </div>
+
+      <div class="panel reveal reveal-delay-2">
+        <div class="panel-head">
+          <div class="dots"><span></span><span></span><span></span></div>
+          <span class="panel-title" data-i18n="hero.panelTitle">soc-ml-classifier — pipeline</span>
+          <button class="replay-btn" onclick="playDemo()" data-i18n="hero.replay">↻ Rejouer</button>
+        </div>
+        <div class="term-body" id="term-body"></div>
+        <div class="sim-badge">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          <span data-i18n="hero.simBadge">Wazuh IDS + Modèle ML XGBoost (STB DSSI)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats strip -->
+    <div class="container">
+      <div class="stats reveal">
+        <div>
+          <div class="stat-k" data-count="6">0</div>
+          <div class="stat-v" data-i18n="stats.v1">Projets IA &amp; Data</div>
+        </div>
+        <div>
+          <div class="stat-k" data-count="4">0</div>
+          <div class="stat-v" data-i18n="stats.v2">Certifications Int.</div>
+        </div>
+        <div>
+          <div class="stat-k" data-count="3">0</div>
+          <div class="stat-v" data-i18n="stats.v3">Année Cycle Ingénieur</div>
+        </div>
+        <div>
+          <div class="stat-k" data-count="100">%</div>
+          <div class="stat-v" data-i18n="stats.v4">Engagement &amp; R&amp;D</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education" style="background:var(--bg-alt);">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow" data-i18n="edu.eyebrow">// PARCOURS ACADÉMIQUE</div>
+        <h2 data-i18n="edu.title">Formation &amp; Spécialisation</h2>
+        <p data-i18n="edu.text">Un parcours axé sur les sciences de l'ingénieur, l'intelligence artificielle et l'apprentissage profond.</p>
+      </div>
+
+      <div class="grid-2 reveal">
+        <div class="edu-card">
+          <div class="edu-header">
+            <span class="edu-school">ESPRIT</span>
+            <span class="edu-date">2023 — Présent</span>
+          </div>
+          <div class="edu-degree" data-i18n="edu.d1.title">Diplôme d'Ingénieur en Intelligence Artificielle</div>
+          <p style="color:var(--text-dim);font-size:14px;margin:0;" data-i18n="edu.d1.desc">
+            Étudiant en 3ème année (1ère année du cycle de spécialisation IA). Focus approfondi sur le Machine Learning, Deep Learning, vision par ordinateur, traitement automatique du langage (NLP) et génie logiciel.
+          </p>
+        </div>
+
+        <div class="edu-card" style="border-left-color: var(--accent-2);">
+          <div class="edu-header">
+            <span class="edu-school">Lycée Kalaat El Andalous</span>
+            <span class="edu-date">2023</span>
+          </div>
+          <div class="edu-degree" style="color:var(--accent-3);" data-i18n="edu.d2.title">Baccalauréat Scientifique</div>
+          <p style="color:var(--text-dim);font-size:14px;margin:0;" data-i18n="edu.d2.desc">
+            Session principale. Solide formation de base en mathématiques, algorithmique et sciences physiques.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow" data-i18n="xp.eyebrow">// EXPÉRIENCE PROFESSIONNELLE</div>
+        <h2 data-i18n="xp.title">Stages et pratiques du terrain</h2>
+        <p data-i18n="xp.text">Application concrète des compétences en entreprise et en sécurité des systèmes d'information.</p>
+      </div>
+
+      <div class="timeline reveal">
+        <div class="tl-item">
+          <div class="tl-head">
+            <span class="tl-role" data-i18n="xp.i1.role">Stagiaire Sécurité IT (DSSI)</span>
+            <span class="tl-org">Société Tunisienne de Banque (STB) — Siège</span>
+            <span class="tl-date" data-i18n="xp.i1.date">2026 — Présent</span>
+          </div>
+          <ul>
+            <li data-i18n="xp.i1.b1">Conception et développement d'une plateforme SOC sous Django pour le filtrage et la classification automatisée des alertes de sécurité Wazuh IDS.</li>
+            <li data-i18n="xp.i1.b2">Entraînement de modèles de Machine Learning (XGBoost, LightGBM, Random Forest, Régression Logistique) sur le jeu de données AIT-ADS pour assister la prise de décision des analystes SOC.</li>
+            <li data-i18n="xp.i1.b3">Livraison des modules : Dashboard temps réel, détection d'anomalies, Threat Intelligence, Ingestion d'API Wazuh et Heatmaps.</li>
+            <li data-i18n="xp.i1.b4">Élaboration d'un dossier technique et présentation (19 slides) sur le déploiement MFA / ManageEngine AD360 pour la DSSI.</li>
+          </ul>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-head">
+            <span class="tl-role" data-i18n="xp.i2.role">Stage de 1ère Année</span>
+            <span class="tl-org">La Poste Tunisienne — Kalaat El Andalous</span>
+            <span class="tl-date">2024</span>
+          </div>
+          <ul>
+            <li data-i18n="xp.i2.b1">Découverte opérationnelle des services financiers postaux et de la gestion de la relation client.</li>
+            <li data-i18n="xp.i2.b2">Participation aux opérations administratives quotidiennes et à l'optimisation des flux de données.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" style="background:var(--bg-alt);">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow" data-i18n="proj.eyebrow">// PROJETS CONCRETS</div>
+        <h2 data-i18n="proj.title">Réalisations &amp; Projets IA</h2>
+        <p data-i18n="proj.text">Une sélection de mes travaux académiques, hackathons et projets personnels disponibles sur GitHub.</p>
+      </div>
+
+      <div class="proj-grid">
+        <!-- SwiftGuard AI -->
+        <div class="proj-card featured reveal">
+          <div class="proj-tag">RAG · LLM · Compliance SWIFT</div>
+          <h3>SwiftGuard AI</h3>
+          <p data-i18n="proj.p1">Assistant IA de conformité qui automatise l'extraction, le résumé et la recherche sémantique des contrôles SWIFT CSCF pour les auditeurs bancaires, via des modèles RAG et LLM exécutés en local.</p>
+          <a class="proj-link" href="https://github.com/jawherfht/AI-Compliance-Assistant-SwiftRAG-" target="_blank" rel="noopener">
+            <span data-i18n="proj.view">Voir le dépôt GitHub</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M8 7h9v9"/></svg>
+          </a>
+        </div>
+
+        <!-- Deep Learning CNN & OCR -->
+        <div class="proj-card reveal">
+          <div class="proj-tag">Computer Vision · CNN · OCR</div>
+          <h3 data-i18n="proj.title2">Image Understanding &amp; Text Extraction</h3>
+          <p data-i18n="proj.p2">Système d'analyse d'images par Deep Learning (CNN) et extraction automatique de texte par OCR sur des documents complexes.</p>
+          <a class="proj-link" href="https://github.com/jawherfht" target="_blank" rel="noopener">
+            <span data-i18n="proj.view">Voir le dépôt GitHub</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M8 7h9v9"/></svg>
+          </a>
+        </div>
+
+        <!-- Voice AI Accessibility -->
+        <div class="proj-card reveal">
+          <div class="proj-tag">Voice AI · Accessibility · Biometrics</div>
+          <h3 data-i18n="proj.title3">Voice-Based Digital Accessibility</h3>
+          <p data-i18n="proj.p3">Plateforme IA vocale (Hackathon 48h) offrant un accès mains-libres sécurisé aux services bancaires et e-commerce pour personnes en situation de handicap.</p>
+          <a class="proj-link" href="https://github.com/jawherfht" target="_blank" rel="noopener">
+            <span data-i18n="proj.view">Voir le dépôt GitHub</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M8 7h9v9"/></svg>
+          </a>
+        </div>
+
+        <!-- Job Market Analytics -->
+        <div class="proj-card reveal">
+          <div class="proj-tag">Machine Learning · ETL · Power BI</div>
+          <h3 data-i18n="proj.title4">Job Market ML &amp; Analytics</h3>
+          <p data-i18n="proj.p4">Système d'aide à la décision basé sur des pipelines ETL, un Data Warehouse et des dashboards Power BI interactifs pour l'analyse du marché de l'emploi.</p>
+          <a class="proj-link" href="https://github.com/jawherfht" target="_blank" rel="noopener">
+            <span data-i18n="proj.view">Voir le dépôt GitHub</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M8 7h9v9"/></svg>
+          </a>
+        </div>
+
+        <!-- C++/Qt Medical -->
+        <div class="proj-card reveal">
+          <div class="proj-tag">C++ · Qt Framework · IoT · Maps</div>
+          <h3 data-i18n="proj.title5">Medical Analysis Desktop System</h3>
+          <p data-i18n="proj.p5">Application desktop de gestion d'analyses médicales avec export PDF, intégration de Google Maps et suivi des capteurs IoT du laboratoire.</p>
+          <a class="proj-link" href="https://github.com/jawherfht" target="_blank" rel="noopener">
+            <span data-i18n="proj.view">Voir le dépôt GitHub</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M8 7h9v9"/></svg>
+          </a>
+        </div>
+
+        <!-- AgriClick -->
+        <div class="proj-card reveal">
+          <div class="proj-tag">Full-Stack MVC · PHP · AI Agriculture</div>
+          <h3 data-i18n="proj.title6">AgriClick Web Platform</h3>
+          <p data-i18n="proj.p6">Application web MVC complète pour la location d'équipements agricoles et l'optimisation d'offres d'emploi agricoles axée sur la durabilité (SDG).</p>
+          <a class="proj-link" href="https://github.com/jawherfht" target="_blank" rel="noopener">
+            <span data-i18n="proj.view">Voir le dépôt GitHub</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M8 7h9v9"/></svg>
+          </a>
+        </div>
+
+        <!-- Discount Watch AI -->
+        <div class="proj-card reveal">
+          <div class="proj-tag">Web Scraping · Python · Playwright</div>
+          <h3>Discount Watch AI Agent</h3>
+          <p data-i18n="proj.p7">Agent de veille automatique qui analyse les ventes flash (Playwright + BeautifulSoup) et produit des synthèses analytiques sur les promotions.</p>
+          <a class="proj-link" href="https://github.com/jawherfht/-Ecommerce-Product-Research-Agent-AI" target="_blank" rel="noopener">
+            <span data-i18n="proj.view">Voir le dépôt GitHub</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M8 7h9v9"/></svg>
+          </a>
+        </div>
+
+        <!-- Model Context Protocol -->
+        <div class="proj-card reveal">
+          <div class="proj-tag">Model Context Protocol · Agentic AI</div>
+          <h3>MCP Tools Architecture</h3>
+          <p data-i18n="proj.p8">Exploration et implémentation du Model Context Protocol pour connecter des systèmes et API externes à des agents autonomes.</p>
+          <a class="proj-link" href="https://github.com/jawherfht/Projet_mcp" target="_blank" rel="noopener">
+            <span data-i18n="proj.view">Voir le dépôt GitHub</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M8 7h9v9"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STACK & CERTIFICATIONS -->
+  <section id="stack">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow" data-i18n="stack.eyebrow">// COMPÉTENCES &amp; CERTIFICATIONS</div>
+        <h2 data-i18n="stack.title">Stack Technique &amp; Certifications</h2>
+        <p data-i18n="stack.text">Les langages, frameworks et outils maîtrisés au quotidien.</p>
+      </div>
+
+      <div class="grid-2 reveal">
+        <div>
+          <div class="stack-group">
+            <h4 data-i18n="stack.g1">LANGAGES &amp; FRAMEWORKS</h4>
+            <div class="chip-row">
+              <span class="chip">C++</span><span class="chip">Qt Framework</span>
+              <span class="chip">Python</span><span class="chip">PHP</span>
+              <span class="chip">Django</span><span class="chip">SQL / MySQL</span>
+            </div>
+          </div>
+          <div class="stack-group">
+            <h4 data-i18n="stack.g2">IA, DATA &amp; ANALYTICS</h4>
+            <div class="chip-row">
+              <span class="chip">Machine Learning</span><span class="chip">Deep Learning</span>
+              <span class="chip">CNN</span><span class="chip">OCR</span><span class="chip">NLP</span>
+              <span class="chip">ETL Pipelines</span><span class="chip">Data Warehousing</span>
+              <span class="chip">Power BI</span><span class="chip">XGBoost / LightGBM</span>
+            </div>
+          </div>
+          <div class="stack-group">
+            <h4 data-i18n="stack.g3">CYBERSÉCURITÉ &amp; OPS</h4>
+            <div class="chip-row">
+              <span class="chip">Wazuh IDS</span><span class="chip">SOC Alert Triage</span>
+              <span class="chip">Threat Intelligence</span><span class="chip">MFA / AD360</span>
+              <span class="chip">Git</span><span class="chip">IoT Systems / Arduino</span>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h4 style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--text-faint);margin:0 0 14px;letter-spacing:.04em;" data-i18n="stack.certTitle">CERTIFICATIONS INTERNATIONALE</h4>
+          <div class="certs">
+            <div class="cert-chip">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15a5 5 0 100-10 5 5 0 000 10zM8.5 13.5L7 21l5-2 5 2-1.5-7.5"/></svg>
+              <div>
+                <strong>NVIDIA DLI</strong> (2026)<br>Generative AI with Diffusion Models
+              </div>
+            </div>
+            <div class="cert-chip">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15a5 5 0 100-10 5 5 0 000 10zM8.5 13.5L7 21l5-2 5 2-1.5-7.5"/></svg>
+              <div>
+                <strong>NVIDIA DLI</strong> (2026)<br>Fundamentals of Deep Learning
+              </div>
+            </div>
+            <div class="cert-chip">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15a5 5 0 100-10 5 5 0 000 10zM8.5 13.5L7 21l5-2 5 2-1.5-7.5"/></svg>
+              <div>
+                <strong>Cisco Academy</strong> (2025)<br>Introduction to Modern AI
+              </div>
+            </div>
+            <div class="cert-chip">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15a5 5 0 100-10 5 5 0 000 10zM8.5 13.5L7 21l5-2 5 2-1.5-7.5"/></svg>
+              <div>
+                <strong>Leadership Recognition</strong> (2025)<br>Social Impact Recognition
+              </div>
+            </div>
+          </div>
+
+          <h4 style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--text-faint);margin:24px 0 12px;letter-spacing:.04em;" data-i18n="stack.langTitle">LANGUES</h4>
+          <div class="chip-row">
+            <span class="chip">Arabe: Maternelle</span>
+            <span class="chip">Français: Courant (B2)</span>
+            <span class="chip">Anglais: Intermédiaire</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" style="background:var(--bg-alt);">
+    <div class="container">
+      <div class="contact-box reveal">
+        <div>
+          <div class="eyebrow" data-i18n="contact.eyebrow">// CONTACT &amp; OPPORTUNITÉS</div>
+          <h2 data-i18n="contact.title">Travaillons ensemble</h2>
+          <p data-i18n="contact.text">À la recherche de projets innovants, stages d'ingéniorat et collaborations en IA et Cybersécurité.</p>
+          <a class="btn btn-primary" href="mailto:jawherfarhar1@gmail.com" data-i18n="contact.btn">Envoyer un email direct</a>
+        </div>
+        <div class="contact-list">
+          <div class="contact-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><path d="M2 6h20v12H2z"/></svg>
+            <a href="mailto:jawherfarhar1@gmail.com">jawherfarhar1@gmail.com</a>
+          </div>
+          <div class="contact-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.3 1.8.6 2.7a2 2 0 01-.4 2.1L8.1 9.7a16 16 0 006 6l1.2-1.2a2 2 0 012.1-.4c.9.3 1.8.5 2.7.6a2 2 0 011.9 2.2z"/></svg>
+            <a href="tel:+21628700463">+216 28 700 463</a>
+          </div>
+          <div class="contact-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.5 7-11.5a7 7 0 10-14 0C5 14.5 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+            <span data-i18n="contact.loc">Ariana, Tunisie</span>
+          </div>
+          <div class="contact-row">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 00-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.7.1-.7 1.2.1 1.9 1.2 1.9 1.2 1.1 1.9 2.9 1.3 3.6 1 .1-.8.4-1.3.8-1.6-2.6-.3-5.4-1.3-5.4-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 016 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0012 .3z"/></svg>
+            <a href="https://github.com/jawherfht" target="_blank" rel="noopener">github.com/jawherfht</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <span>© 2026 Jawher Farhat — ESPRIT AI Engineering</span>
+    <span>Conçu avec passion &amp; précision</span>
+  </div>
+</footer>
+
+<script>
+// ---------------- THEME TOGGLE ----------------
+function toggleTheme(){
+  document.documentElement.classList.toggle('light');
+  localStorage.setItem('jf-theme', document.documentElement.classList.contains('light') ? 'light' : 'dark');
+}
+(function initTheme(){
+  try{
+    const saved = localStorage.getItem('jf-theme');
+    if(saved === 'light') document.documentElement.classList.add('light');
+  }catch(e){}
+})();
+
+// ---------------- SCROLL REVEAL ----------------
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) {
+      entry.target.classList.add('active');
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// ---------------- STAT COUNTER ANIMATION ----------------
+let counted = false;
+const statsObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting && !counted) {
+      counted = true;
+      document.querySelectorAll('.stat-k').forEach(el => {
+        const target = parseInt(el.getAttribute('data-count'));
+        let count = 0;
+        const speed = Math.ceil(target / 20);
+        const timer = setInterval(() => {
+          count += speed;
+          if(count >= target) {
+            count = target;
+            clearInterval(timer);
+          }
+          el.innerText = count + (target === 100 ? '%' : '+');
+        }, 50);
+      });
+    }
+  });
+}, { threshold: 0.5 });
+const statsElem = document.querySelector('.stats');
+if(statsElem) statsObserver.observe(statsElem);
+
+// ---------------- HERO AMBIENT CANVAS PARTICLES ----------------
+const canvas = document.getElementById('hero-canvas');
+if(canvas) {
+  const ctx = canvas.getContext('2d');
+  let width = canvas.width = canvas.offsetWidth;
+  let height = canvas.height = canvas.offsetHeight;
+  
+  window.addEventListener('resize', () => {
+    width = canvas.width = canvas.offsetWidth;
+    height = canvas.height = canvas.offsetHeight;
+  });
+
+  const particles = Array.from({length: 35}, () => ({
+    x: Math.random() * width,
+    y: Math.random() * height,
+    vx: (Math.random() - 0.5) * 0.4,
+    vy: (Math.random() - 0.5) * 0.4,
+    r: Math.random() * 2 + 1
+  }));
+
+  function drawParticles() {
+    ctx.clearRect(0, 0, width, height);
+    ctx.fillStyle = 'rgba(34, 211, 238, 0.5)';
+    ctx.strokeStyle = 'rgba(34, 211, 238, 0.08)';
+
+    particles.forEach((p, i) => {
+      p.x += p.vx;
+      p.y += p.vy;
+      if(p.x < 0 || p.x > width) p.vx *= -1;
+      if(p.y < 0 || p.y > height) p.vy *= -1;
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fill();
+
+      for(let j = i + 1; j < particles.length; j++) {
+        const p2 = particles[j];
+        const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
+        if(dist < 120) {
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(p2.x, p2.y);
+          ctx.stroke();
+        }
+      }
+    });
+    requestAnimationFrame(drawParticles);
+  }
+  drawParticles();
+}
+
+// ---------------- I18N DICTIONARY ----------------
+const I18N = {
+  fr: {},
+  en: {
+    "nav.sub": "AI · SECURITY · SOFTWARE",
+    "nav.about": "About",
+    "nav.education": "Education",
+    "nav.experience": "Experience",
+    "nav.projects": "Projects",
+    "nav.stack": "Skills",
+    "nav.contact": "Contact",
+    "nav.contactBtn": "Contact me",
+    "hero.eyebrow": "// AI ENGINEERING STUDENT (ESPRIT)",
+    "hero.subtitle": "Artificial Intelligence & Cybersecurity",
+    "hero.text": "3rd-year AI Engineering student at ESPRIT specializing in AI and IT Security Intern at STB. Passionate about building intelligent systems combining Machine Learning, Deep Learning, Computer Vision, and operational cybersecurity.",
+    "hero.btn1": "Explore My Projects",
+    "hero.btn2": "Download CV / Contact",
+    "hero.location": "Ariana, Tunisia",
+    "hero.panelTitle": "soc-ml-classifier — pipeline",
+    "hero.replay": "↻ Replay",
+    "hero.simBadge": "Wazuh IDS + XGBoost ML Model (STB DSSI)",
+    "stats.v1": "AI & Data Projects",
+    "stats.v2": "Int. Certifications",
+    "stats.v3": "Engineering Cycle Year",
+    "stats.v4": "Commitment & R&D",
+    "edu.eyebrow": "// ACADEMIC PATH",
+    "edu.title": "Education & Specialization",
+    "edu.text": "An academic path focused on engineering sciences, artificial intelligence, and deep learning.",
+    "edu.d1.title": "Engineering Degree in Artificial Intelligence",
+    "edu.d1.desc": "3rd year student (1st year of AI specialization cycle). Deep focus on Machine Learning, Deep Learning, Computer Vision, NLP, and software engineering.",
+    "edu.d2.title": "Scientific Baccalaureate",
+    "edu.d2.desc": "Main session. Solid foundation in mathematics, algorithmics, and physical sciences.",
+    "xp.eyebrow": "// WORK EXPERIENCE",
+    "xp.title": "Internships & Fieldwork",
+    "xp.text": "Hands-on application of cybersecurity and AI engineering in enterprise environments.",
+    "xp.i1.role": "IT Security Intern (DSSI)",
+    "xp.i1.date": "2026 — Present",
+    "xp.i1.b1": "Designed and developed a Django SOC platform for automated filtering and classification of Wazuh IDS security alerts.",
+    "xp.i1.b2": "Trained Machine Learning models (XGBoost, LightGBM, Random Forest, Logistic Regression) on AIT-ADS dataset to assist SOC analyst decision-making.",
+    "xp.i1.b3": "Delivered modules: Real-time Dashboard, Anomaly Detection, Threat Intelligence, Wazuh API ingestion, and Heatmaps.",
+    "xp.i1.b4": "Prepared technical documentation and 19-slide presentation on MFA / ManageEngine AD360 rollout for DSSI.",
+    "xp.i2.role": "First-Year Intern",
+    "xp.i2.b1": "Discovered financial postal services operations and customer relationship management.",
+    "xp.i2.b2": "Participated in daily administrative procedures and data workflow optimization.",
+    "proj.eyebrow": "// FEATURED PROJECTS",
+    "proj.title": "AI & Engineering Projects",
+    "proj.text": "A selection of my academic work, hackathon solutions, and open-source projects on GitHub.",
+    "proj.p1": "AI compliance assistant automating extraction, summarization, and semantic search of SWIFT CSCF controls for banking auditors via local RAG & LLMs.",
+    "proj.title2": "Image Understanding & Text Extraction",
+    "proj.p2": "Deep learning image analysis system (CNN) with automated text extraction (OCR) for complex documents.",
+    "proj.title3": "Voice-Based Digital Accessibility",
+    "proj.p3": "Voice AI platform (48h Hackathon) enabling secure hands-free banking & e-commerce access for users with disabilities.",
+    "proj.title4": "Job Market ML & Analytics",
+    "proj.p4": "Decision-support platform using ETL pipelines, Data Warehouse, and Power BI dashboards for job market analysis.",
+    "proj.title5": "Medical Analysis Desktop System",
+    "proj.p5": "C++/Qt desktop management application for medical labs featuring PDF export, Google Maps API, and IoT tracking.",
+    "proj.title6": "AgriClick Web Platform",
+    "proj.p6": "Full-stack MVC web app for agricultural equipment rental and farming jobs focused on SDG sustainability.",
+    "proj.p7": "Automated flash sales monitoring agent (Playwright + BeautifulSoup) generating analytics on price discounts.",
+    "proj.p8": "Exploration and implementation of Model Context Protocol to connect external tools to autonomous agents.",
+    "proj.view": "View GitHub Repo",
+    "stack.eyebrow": "// SKILLS & CERTIFICATIONS",
+    "stack.title": "Tech Stack & Certifications",
+    "stack.text": "Languages, frameworks, data tools, and certifications mastered.",
+    "stack.g1": "LANGUAGES & FRAMEWORKS",
+    "stack.g2": "AI, DATA & ANALYTICS",
+    "stack.g3": "CYBERSECURITY & OPS",
+    "stack.certTitle": "INTERNATIONAL CERTIFICATIONS",
+    "stack.langTitle": "LANGUAGES",
+    "contact.eyebrow": "// CONTACT & OPPORTUNITIES",
+    "contact.title": "Let's Work Together",
+    "contact.text": "Open to innovative projects, engineering internships, and AI/Cybersecurity collaborations.",
+    "contact.btn": "Send Direct Email",
+    "contact.loc": "Ariana, Tunisia"
+  }
+};
+
+const FR_DEFAULTS = {};
+document.querySelectorAll('[data-i18n]').forEach(el => {
+  FR_DEFAULTS[el.getAttribute('data-i18n')] = el.innerHTML;
+});
+
+function setLang(lang){
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    const val = lang === 'en' ? (I18N.en[key] ?? FR_DEFAULTS[key]) : FR_DEFAULTS[key];
+    el.innerHTML = val;
+  });
+  document.documentElement.lang = lang;
+  document.getElementById('lang-fr').classList.toggle('active', lang === 'fr');
+  document.getElementById('lang-en').classList.toggle('active', lang === 'en');
+  localStorage.setItem('jf-lang', lang);
+}
+(function initLang(){
+  try{
+    const saved = localStorage.getItem('jf-lang');
+    if(saved === 'en') setLang('en');
+  }catch(e){}
+})();
+
+// ---------------- TERMINAL SIMULATION ----------------
+const DEMO_LINES = {
+  fr: [
+    {t:'<span class="c-dim">$</span> tail -f /var/log/wazuh/alerts.json'},
+    {t:'<span class="c-dim">{"rule.id": 5710, "srcip": "10.0.4.18", "user": "admin", "count": 42}</span>'},
+    {t:'<span class="c-accent">→</span> classificateur ML (XGBoost) : score d\'anomalie <span class="c-warn">0.94</span>'},
+    {t:'<span class="c-accent">→</span> verdict : <span class="c-warn">VRAI POSITIF</span> — brute force probable'},
+    {t:'<span class="c-accent">→</span> génération du rapport d\'incident SOC... <span class="c-ok">✔ terminé</span>'}
+  ],
+  en: [
+    {t:'<span class="c-dim">$</span> tail -f /var/log/wazuh/alerts.json'},
+    {t:'<span class="c-dim">{"rule.id": 5710, "srcip": "10.0.4.18", "user": "admin", "count": 42}</span>'},
+    {t:'<span class="c-accent">→</span> ML classifier (XGBoost): anomaly score <span class="c-warn">0.94</span>'},
+    {t:'<span class="c-accent">→</span> verdict: <span class="c-warn">TRUE POSITIVE</span> — likely brute force'},
+    {t:'<span class="c-accent">→</span> generating SOC incident report... <span class="c-ok">✔ done</span>'}
+  ]
+};
+let demoRunning = false;
+function playDemo(){
+  if(demoRunning) return;
+  demoRunning = true;
+  const body = document.getElementById('term-body');
+  const lang = document.documentElement.lang === 'en' ? 'en' : 'fr';
+  const lines = DEMO_LINES[lang];
+  body.innerHTML = '';
+  lines.forEach((ln, i) => {
+    setTimeout(() => {
+      const div = document.createElement('div');
+      div.className = 'term-line';
+      div.innerHTML = ln.t;
+      body.appendChild(div);
+      setTimeout(() => div.classList.add('show'), 20);
+      if(i === lines.length - 1) demoRunning = false;
+    }, i * 600);
+  });
+}
+playDemo();
+</script>
+</body>
+</html>
