@@ -361,6 +361,54 @@
   .contact-row svg{width:18px;height:18px;color:var(--accent);flex:none;}
   .contact-row a:hover{color:var(--accent);}
 
+  /* 17 certifications showcase */
+  .cert-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 24px; }
+  @media (max-width: 980px){ .cert-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 620px){ .cert-grid { grid-template-columns: 1fr; } }
+  
+  .cert-card-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: all 0.25s ease;
+  }
+  .cert-card-item:hover {
+    border-color: var(--accent);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px -8px rgba(34, 211, 238, 0.15);
+  }
+  .cert-badge-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  .cert-org-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 6px;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+  }
+  .cert-date { font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: var(--text-faint); }
+  .cert-card-item h3 { margin: 0; font-size: 16px; font-weight: 700; line-height: 1.35; }
+  .cert-card-item p { margin: 0; font-size: 13.2px; color: var(--text-dim); line-height: 1.5; flex: 1; }
+  .cert-verify-link {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: 12.5px; font-weight: 600; color: var(--accent);
+    margin-top: 4px; transition: color 0.15s;
+  }
+  .cert-verify-link:hover { text-decoration: underline; color: var(--text); }
+  
+  .cert-tabs-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 24px; }
+  .cert-tab {
+    padding: 8px 16px; border-radius: 8px; border: 1px solid var(--border);
+    background: var(--surface); color: var(--text-dim); font-size: 13px; font-weight: 600;
+    cursor: pointer; transition: all 0.15s ease;
+  }
+  .cert-tab.active { background: var(--accent); color: #04121a; border-color: var(--accent); }
+
   /* footer */
   footer{border-top:1px solid var(--border);padding:28px 0;background:var(--bg-alt);}
   .footer-inner{display:flex;align-items:center;justify-content:space-between;font-size:13px;color:var(--text-faint);}
@@ -384,6 +432,7 @@
       <a href="#experience" data-i18n="nav.experience">Expérience</a>
       <a href="#projects" data-i18n="nav.projects">Projets</a>
       <a href="#stack" data-i18n="nav.stack">Compétences</a>
+      <a href="#certifications" data-i18n="nav.certifications">Certifications (17)</a>
       <a href="#contact" data-i18n="nav.contact">Contact</a>
     </nav>
     <div class="nav-actions">
@@ -456,7 +505,7 @@
           <div class="stat-v" data-i18n="stats.v1">Projets IA &amp; Data</div>
         </div>
         <div>
-          <div class="stat-k" data-count="4">0</div>
+          <div class="stat-k" data-count="17">0</div>
           <div class="stat-v" data-i18n="stats.v2">Certifications Int.</div>
         </div>
         <div>
@@ -724,6 +773,248 @@
     </div>
   </section>
 
+  <!-- CERTIFICATIONS SHOWCASE (17) -->
+  <section id="certifications" style="background:var(--bg-alt);">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow" data-i18n="cert.eyebrow">// ACCRÉDITATIONS &amp; CERTIFICATIONS (17)</div>
+        <h2 data-i18n="cert.title">Licences &amp; Certifications Officielles</h2>
+        <p data-i18n="cert.text">L'ensemble de mes 17 certifications vérifiées en IA Agentique, Deep Learning, Cloud Azure et Data Science.</p>
+      </div>
+
+      <!-- Filter tabs -->
+      <div class="cert-tabs-row reveal">
+        <button class="cert-tab active" onclick="filterCerts('all', this)" data-i18n="cert.tabAll">Toutes (17)</button>
+        <button class="cert-tab" onclick="filterCerts('agentic', this)" data-i18n="cert.tabAgentic">IA Agentique &amp; LLMs (7)</button>
+        <button class="cert-tab" onclick="filterCerts('genai', this)" data-i18n="cert.tabGenai">GenAI &amp; Deep Learning (4)</button>
+        <button class="cert-tab" onclick="filterCerts('ml-data', this)" data-i18n="cert.tabMl">Machine Learning &amp; Data (6)</button>
+      </div>
+
+      <div class="cert-grid reveal">
+        <!-- 1. Microsoft GenAI Agents -->
+        <div class="cert-card-item" data-cat="agentic">
+          <div class="cert-badge-row">
+            <span class="cert-org-tag" style="color:#00a4ef;">Microsoft</span>
+            <span class="cert-date">Août 2026</span>
+          </div>
+          <h3 data-i18n="c1.title">Get started with generative AI and agents in Azure</h3>
+          <p data-i18n="c1.desc">Building generative AI applications and autonomous agents on Microsoft Azure cloud platform.</p>
+          <a class="cert-verify-link" href="https://learn.microsoft.com/en-us/users/jawherfarhat-1565/achievements/jhaqkekt" target="_blank" rel="noopener">
+            <span data-i18n="cert.verify">Afficher le diplôme</span> ↗
+          </a>
+        </div>
+
+        <!-- 2. Microsoft AI Azure -->
+        <div class="cert-card-item" data-cat="genai">
+          <div class="cert-badge-row">
+            <span class="cert-org-tag" style="color:#00a4ef;">Microsoft</span>
+            <span class="cert-date">Août 2026</span>
+          </div>
+          <h3 data-i18n="c2.title">Get Started with AI in Azure</h3>
+          <p data-i18n="c2.desc">Foundational Azure AI cognitive services, machine learning capabilities, and AI solution architectures.</p>
+          <a class="cert-verify-link" href="https://learn.microsoft.com/fr-fr/users/jawherfarhat-1565/achievements/jha44uxt" target="_blank" rel="noopener">
+            <span data-i18n="cert.verify">Afficher le diplôme</span> ↗
+          </a>
+        </div>
+
+        <!-- 3. Hugging Face Agents -->
+        <div class="cert-card-item" data-cat="agentic">
+          <div class="cert-badge-row">
+            <span class="cert-org-tag" style="color:#ffd21e;">Hugging Face</span>
+            <span class="cert-date">Août 2026</span>
+          </div>
+          <h3 data-i18n="c3.title">Fundamentals of Agents — Hugging Face</h3>
+          <p data-i18n="c3.desc">AI agent concepts, tool execution, reasoning loops, and agentic workflows from Hugging Face Agents Course.</p>
+          <a class="cert-verify-link" href="https://www.linkedin.com/in/jawher-farhat-247723320/overlay/Certifications/1901505859/treasury/" target="_blank" rel="noopener">
+            <span data-i18n="cert.verify">Afficher le diplôme</span> ↗
+          </a>
+        </div>
+
+        <!-- 4. IBM LangGraph -->
+        <div class="cert-card-item" data-cat="agentic">
+          <div class="cert-badge-row">
+            <span class="cert-org-tag" style="color:#1f70c1;">IBM</span>
+            <span class="cert-date">Juillet 2026</span>
+          </div>
+          <h3 data-i18n="c4.title">Agentic AI Workflow Design Patterns with LangGraph</h3>
+          <p data-i18n="c4.desc">Designing stateful agentic workflows: sequential, conditional, looping, and multi-agent graph architectures.</p>
+          <a class="cert-verify-link" href="https://www.linkedin.com/in/jawher-farhat-247723320/overlay/Certifications/1901232297/treasury/" target="_blank" rel="noopener">
+            <span data-i18n="cert.verify">Afficher le diplôme</span> ↗
+          </a>
+        </div>
+
+        <!-- 5. IBM LangChain Tool Calling -->
+        <div class="cert-card-item" data-cat="agentic">
+          <div class="cert-badge-row">
+            <span class="cert-org-tag" style="color:#1f70c1;">IBM</span>
+            <span class="cert-date">Juillet 2026</span>
+          </div>
+          <h3 data-i18n="c5.title">AI Math Assistant with LangChain Tool Calling</h3>
+          <p data-i18n="c5.desc">Building LLM applications interacting with external tools, function calling, and task-oriented workflows.</p>
+          <a class="cert-verify-link" href="https://www.linkedin.com/in/jawher-farhat-247723320/overlay/Certifications/1901174292/treasury/" target="_blank" rel="noopener">
+            <span data-i18n="cert.verify">Afficher le diplôme</span> ↗
+          </a>
+        </div>
+
+        <!-- 6. IBM CrewAI & Gradio -->
+        <div class="cert-card-item" data-cat="agentic">
+          <div class="cert-badge-row">
+            <span class="cert-org-tag" style="color:#1f70c1;">IBM</span>
+            <span class="cert-date">Juillet 2026</span>
+          </div>
+          <h3 data-i18n="c6.title">Multi-Agent App with CrewAI &amp; Gradio</h3>
+          <p data-i18n="c6.desc">Multi-agent collaboration, role delegation, workflow orchestration, and interactive Gradio UI design.</p>
+          <a class="cert-verify-link" href="https://www.linkedin.com/in/jawher-farhat-247723320/overlay/Certifications/1901092732/treasury/" target="_blank" rel="noopener">
+            <span data-i18n="cert.verify">Afficher le diplôme</span> ↗
+          </a>
+        </div>
+
+        <!-- 7. ESPRIT Enterprise Agentic AI -->
+        <div class="cert-card-item" data-cat="agentic">
+          <div class="cert-badge-row">
+            <span class="cert-org-tag" style="color:#e11d48;">ESPRIT</span>
+            <span class="cert-date">Juillet 2026</span>
+          </div>
+          <h3 data-i18n="c7.title">IA Agentique pour les Workflows d'Entreprise</h3>
+          <p data-i18n="c7.desc">Programme d'excellence (20h, Note 8.2/10) : agents d'entreprise, RAG, gouvernance IA, sécurité &amp; déploiement.</p>
+          <a class="cert-verify-link" href="https://ella-frontend-322382658983.us-central1.run.app/verify/ca2855bb-656c-4ae2-80f2-daa3440a27e5" target="_blank" rel="noopener">
+            <span data-i18n="cert.verify">Afficher le diplôme</span> ↗
+          </a>
+        </div>
+
+        <!-- 8. NVIDIA Diffusion Models -->
+        <div class="cert-card-item" data-cat="genai">
+          <div class="cert-badge-row">
+            <span class="cert-org-tag" style="color:#76b900;">NVIDIA DLI</span>
+            <span class="cert-date">Avril 2026</span>
+          </div>
+          <h3 data-i18n="c8.title">Generative AI with Diffusion Models</h3>
+          <p data-i18n="c8.desc">Diffusion-based generative models, image synthesis, denoising algorithms, latent diffusion &amp; multimodal AI. (ID: sB83Pys5QOaK9L8kshbegw)</p>
+          <a class="cert-verify-link" href="https://www.linkedin.com/in/jawher-farhat-247723320/overlay/Certifications/565739754/treasury/" target="_blank" rel="noopener">
+            <span data-i18n="cert.verify">Afficher le diplôme</span> ↗
+          </a>
+        </div>
+
+        <!-- 9. NVIDIA Fundamentals of Deep Learning -->
+        <div class="cert-card-item" data-cat="genai">
+          <div class="cert-badge-row">
+            <span class="cert-org-tag" style="color:#76b900;">NVIDIA DLI</span>
+            <span class="cert-date">Janv. 2023 — 2028</span>
+          </div>
+          <h3 data-i18n="c9.title">Fundamentals of Deep Learning</h3>
+          <p data-i18n="c9.desc">Deep neural network architecture, computer vision, optimization, transfer learning &amp; GPU acceleration. (ID: DkWCbmF3RL2RMguN5_L3hA)</p>
+          <a class="cert-verify-link" href="https://www.linkedin.com/in/jawher-farhat-247723320/" target="_blank" rel="noopener">
+            <span data-i18n="cert.verify">Afficher le diplôme</span> ↗
+          </a>
+        </div>
+
+        <!-- 10. Kaggle ML Explainability -->
+        <div class="cert-card-item" data-cat="ml-data">
+          <div class="cert-badge-row">
+            <span class="cert-org-tag" style="color:#20beff;">Kaggle</span>
+            <span class="cert-date">Juin 2026</span>
+          </div>
+          <h3 data-i18n="c10.title">Machine Learning Explainability (XAI)</h3>
+          <p data-i18n="c10.desc">Permutation importance, Partial Dependence Plots, SHAP values, and model interpretation methods.</p>
+          <a class="cert-verify-link" href="https://www.linkedin.com/in/jawher-farhat-247723320/overlay/Certifications/565407308/treasury/" target="_blank" rel="noopener">
+            <span data-i18n="cert.verify">Afficher le diplôme</span> ↗
+          </a>
+        </div>
+
+        <!-- 11. Kaggle Computer Vision -->
+        <div class="cert-card-item" data-cat="genai">
+          <div class="cert-badge-row">
+            <span class="cert-org-tag" style="color:#20beff;">Kaggle</span>
+            <span class="cert-date">Juin 2026</span>
+          </div>
+          <h3 data-i18n="c11.title">Computer Vision with TensorFlow</h3>
+          <p data-i18n="c11.desc">Convolutional Neural Networks (CNNs), transfer learning, image classification &amp; feature extraction.</p>
+          <a class="cert-verify-link" href="https://www.linkedin.com/in/jawher-farhat-247723320/overlay/Certifications/565363859/treasury/" target="_blank" rel="noopener">
+            <span data-i18n="cert.verify">Afficher le diplôme</span> ↗
+          </a>
+        </div>
+
+        <!-- 12. Kaggle Feature Engineering -->
+        <div class="cert-card-item" data-cat="ml-data">
+          <div class="cert-badge-row">
+            <span class="cert-org-tag" style="color:#20beff;">Kaggle</span>
+            <span class="cert-date">Juin 2026</span>
+          </div>
+          <h3 data-i18n="c12.title">Feature Engineering</h3>
+          <p data-i18n="c12.desc">Transforming raw data into meaningful features using encoding, mathematical transformations &amp; mutual information.</p>
+          <a class="cert-verify-link" href="https://www.linkedin.com/in/jawher-farhat-247723320/overlay/Certifications/565217700/treasury/" target="_blank" rel="noopener">
+            <span data-i18n="cert.verify">Afficher le diplôme</span> ↗
+          </a>
+        </div>
+
+        <!-- 13. Kaggle Data Visualization -->
+        <div class="cert-card-item" data-cat="ml-data">
+          <div class="cert-badge-row">
+            <span class="cert-org-tag" style="color:#20beff;">Kaggle</span>
+            <span class="cert-date">Juin 2026</span>
+          </div>
+          <h3 data-i18n="c13.title">Data Visualization</h3>
+          <p data-i18n="c13.desc">Creating insightful visualizations using Matplotlib &amp; Seaborn for exploratory data analysis and trend identification.</p>
+          <a class="cert-verify-link" href="https://www.linkedin.com/in/jawher-farhat-247723320/overlay/Certifications/565289024/treasury/" target="_blank" rel="noopener">
+            <span data-i18n="cert.verify">Afficher le diplôme</span> ↗
+          </a>
+        </div>
+
+        <!-- 14. Kaggle Pandas -->
+        <div class="cert-card-item" data-cat="ml-data">
+          <div class="cert-badge-row">
+            <span class="cert-org-tag" style="color:#20beff;">Kaggle</span>
+            <span class="cert-date">Juin 2026</span>
+          </div>
+          <h3 data-i18n="c14.title">Pandas Data Wrangling</h3>
+          <p data-i18n="c14.desc">Data manipulation, filtering, aggregation, merging datasets, and exploratory data analysis.</p>
+          <a class="cert-verify-link" href="https://www.linkedin.com/in/jawher-farhat-247723320/overlay/Certifications/564992405/treasury/" target="_blank" rel="noopener">
+            <span data-i18n="cert.verify">Afficher le diplôme</span> ↗
+          </a>
+        </div>
+
+        <!-- 15. Kaggle Intermediate ML -->
+        <div class="cert-card-item" data-cat="ml-data">
+          <div class="cert-badge-row">
+            <span class="cert-org-tag" style="color:#20beff;">Kaggle</span>
+            <span class="cert-date">Juin 2026</span>
+          </div>
+          <h3 data-i18n="c15.title">Intermediate Machine Learning</h3>
+          <p data-i18n="c15.desc">Pipelines, cross-validation, missing value imputation, categorical encoding, and preventing data leakage.</p>
+          <a class="cert-verify-link" href="https://www.linkedin.com/in/jawher-farhat-247723320/overlay/Certifications/564936689/treasury/" target="_blank" rel="noopener">
+            <span data-i18n="cert.verify">Afficher le diplôme</span> ↗
+          </a>
+        </div>
+
+        <!-- 16. Kaggle Intro to ML -->
+        <div class="cert-card-item" data-cat="ml-data">
+          <div class="cert-badge-row">
+            <span class="cert-org-tag" style="color:#20beff;">Kaggle</span>
+            <span class="cert-date">Juin 2026</span>
+          </div>
+          <h3 data-i18n="c16.title">Intro to Machine Learning</h3>
+          <p data-i18n="c16.desc">Supervised learning, model training, decision trees, random forests, validation &amp; evaluation using Scikit-learn.</p>
+          <a class="cert-verify-link" href="https://www.linkedin.com/in/jawher-farhat-247723320/overlay/Certifications/564851340/treasury/" target="_blank" rel="noopener">
+            <span data-i18n="cert.verify">Afficher le diplôme</span> ↗
+          </a>
+        </div>
+
+        <!-- 17. Cisco Modern AI -->
+        <div class="cert-card-item" data-cat="genai">
+          <div class="cert-badge-row">
+            <span class="cert-org-tag" style="color:#049fd9;">Cisco Academy</span>
+            <span class="cert-date">2025</span>
+          </div>
+          <h3 data-i18n="c17.title">Introduction to Modern AI &amp; Leadership</h3>
+          <p data-i18n="c17.desc">Modern AI concepts, neural network fundamentals, and Social Impact Leadership recognition.</p>
+          <a class="cert-verify-link" href="https://www.linkedin.com/in/jawher-farhat-247723320/" target="_blank" rel="noopener">
+            <span data-i18n="cert.verify">Afficher le diplôme</span> ↗
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CONTACT -->
   <section id="contact" style="background:var(--bg-alt);">
     <div class="container">
@@ -868,6 +1159,19 @@ if(canvas) {
   drawParticles();
 }
 
+// ---------------- CERTIFICATIONS FILTER ----------------
+function filterCerts(cat, btn) {
+  document.querySelectorAll('.cert-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.cert-card-item').forEach(card => {
+    if(cat === 'all' || card.getAttribute('data-cat') === cat) {
+      card.style.display = 'flex';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+
 // ---------------- I18N DICTIONARY ----------------
 const I18N = {
   fr: {},
@@ -878,6 +1182,7 @@ const I18N = {
     "nav.experience": "Experience",
     "nav.projects": "Projects",
     "nav.stack": "Skills",
+    "nav.certifications": "Certifications (17)",
     "nav.contact": "Contact",
     "nav.contactBtn": "Contact me",
     "hero.eyebrow": "// AI ENGINEERING STUDENT (ESPRIT)",
@@ -937,6 +1242,14 @@ const I18N = {
     "stack.g3": "CYBERSECURITY & OPS",
     "stack.certTitle": "INTERNATIONAL CERTIFICATIONS",
     "stack.langTitle": "LANGUAGES",
+    "cert.eyebrow": "// ACCREDITATIONS & CERTIFICATIONS (17)",
+    "cert.title": "Official Licenses & Certifications",
+    "cert.text": "All 17 of my verified certifications in Agentic AI, Deep Learning, Azure Cloud, and Data Science.",
+    "cert.tabAll": "All (17)",
+    "cert.tabAgentic": "Agentic AI & LLMs (7)",
+    "cert.tabGenai": "GenAI & Deep Learning (4)",
+    "cert.tabMl": "Machine Learning & Data (6)",
+    "cert.verify": "View Certificate",
     "contact.eyebrow": "// CONTACT & OPPORTUNITIES",
     "contact.title": "Let's Work Together",
     "contact.text": "Open to innovative projects, engineering internships, and AI/Cybersecurity collaborations.",
