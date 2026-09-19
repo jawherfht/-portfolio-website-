@@ -361,6 +361,33 @@
   .contact-row svg{width:18px;height:18px;color:var(--accent);flex:none;}
   .contact-row a:hover{color:var(--accent);}
 
+  /* awards & hackathons */
+  .award-card {
+    background: linear-gradient(135deg, var(--surface), var(--surface-2));
+    border: 1px solid color-mix(in srgb, #f5b642 45%, var(--border));
+    border-radius: var(--radius);
+    padding: 34px;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .award-card:hover {
+    border-color: #f5b642;
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px -12px rgba(245, 182, 66, 0.25);
+  }
+  .award-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700;
+    color: #f5b642; background: rgba(245, 182, 66, 0.12); border: 1px solid rgba(245, 182, 66, 0.35);
+    padding: 6px 14px; border-radius: 999px; margin-bottom: 18px;
+  }
+  .award-card h3 { margin: 0 0 10px; font-size: 22px; font-weight: 800; color: var(--text); }
+  .award-subtitle { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--accent); margin-bottom: 14px; }
+  .award-bullets { margin: 16px 0 0; padding-left: 20px; color: var(--text-dim); font-size: 14.5px; line-height: 1.65; }
+  .award-bullets li { margin-bottom: 8px; }
+
   /* 17 certifications showcase */
   .cert-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 24px; }
   @media (max-width: 980px){ .cert-grid { grid-template-columns: repeat(2, 1fr); } }
@@ -431,6 +458,7 @@
       <a href="#education" data-i18n="nav.education">Formation</a>
       <a href="#experience" data-i18n="nav.experience">Expérience</a>
       <a href="#projects" data-i18n="nav.projects">Projets</a>
+      <a href="#awards" data-i18n="nav.awards">Prix &amp; Hackathons</a>
       <a href="#stack" data-i18n="nav.stack">Compétences</a>
       <a href="#certifications" data-i18n="nav.certifications">Certifications (17)</a>
       <a href="#contact" data-i18n="nav.contact">Contact</a>
@@ -691,6 +719,41 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M8 7h9v9"/></svg>
           </a>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HONORS & HACKATHON AWARDS -->
+  <section id="awards">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow" data-i18n="award.eyebrow">// DISTINCTIONS &amp; HACKATHONS</div>
+        <h2 data-i18n="award.title">Prix, Hackathons &amp; Événements</h2>
+        <p data-i18n="award.text">Récompenses obtenues lors de compétitions d'IA et événements d'ingénierie majeurs.</p>
+      </div>
+
+      <div class="award-card reveal">
+        <div class="award-tag">🏆 3RD PLACE WINNER · AI MINDS HACKATHON (1,000 DT)</div>
+        <h3 data-i18n="award.aiMindsTitle">Intelligent Multimodal Memory Assistant — Team Spartans</h3>
+        <div class="award-subtitle" data-i18n="award.aiMindsSub">AI Minds | Build. Deploy. Automate. Hackathon</div>
+        <p data-i18n="award.aiMindsDesc" style="color:var(--text-dim);font-size:15px;line-height:1.6;">
+          Conception et développement d'un assistant de mémoire long-terme multimodal structuré, basé uniquement sur des modèles LLM open-source hébergés en local (&lt;4B paramètres).
+        </p>
+        <ul class="award-bullets">
+          <li data-i18n="award.b1"><strong>Pipeline d'Ingestion Automatique</strong> : traitement des données personnelles multimodales (textes, images, audios, documents).</li>
+          <li data-i18n="award.b2"><strong>Mémoire Sémantique Long-Terme</strong> : découpage sémantique (chunking) et embeddings persistants stockés en base vectorielle.</li>
+          <li data-i18n="award.b3"><strong>Architecture RAG &amp; LLM Local</strong> : génération de réponses ancrées, résumé automatique et extraction d'actions clés.</li>
+          <li data-i18n="award.b4"><strong>Réduction d'Hallucinations</strong> : mécanisme de vérification basé sur la recherche documentaire d'origine.</li>
+          <li data-i18n="award.b5"><strong>Prix Obtenu</strong> : 🏆 3ème place sur le podium et prix de 1,000 DT décerné par le jury de spécialistes.</li>
+        </ul>
+      </div>
+
+      <div class="award-card reveal" style="border-color: color-mix(in srgb, var(--accent) 35%, var(--border));">
+        <div class="award-tag" style="color:var(--accent);background:rgba(34,211,238,0.12);border-color:rgba(34,211,238,0.35);">🎓 ESPRIT EXHIBITION</div>
+        <h3 data-i18n="award.balTitle">Participation Annuelle au Bal des Projets (ESPRIT)</h3>
+        <p data-i18n="award.balDesc" style="color:var(--text-dim);font-size:14.5px;line-height:1.6;margin:0;">
+          Participation active chaque année à l'événement annuel phare de l'école ESPRIT pour présenter et exposer mes projets d'ingénierie d'IA, systèmes embarqués et applications logicielles devant des jurys académiques et industriels.
+        </p>
       </div>
     </div>
   </section>
@@ -1181,6 +1244,7 @@ const I18N = {
     "nav.education": "Education",
     "nav.experience": "Experience",
     "nav.projects": "Projects",
+    "nav.awards": "Awards & Hackathons",
     "nav.stack": "Skills",
     "nav.certifications": "Certifications (17)",
     "nav.contact": "Contact",
@@ -1234,6 +1298,19 @@ const I18N = {
     "proj.p7": "Automated flash sales monitoring agent (Playwright + BeautifulSoup) generating analytics on price discounts.",
     "proj.p8": "Exploration and implementation of Model Context Protocol to connect external tools to autonomous agents.",
     "proj.view": "View GitHub Repo",
+    "award.eyebrow": "// HONORS & HACKATHONS",
+    "award.title": "Awards, Hackathons & Events",
+    "award.text": "Awards won at major AI competitions and engineering exhibition events.",
+    "award.aiMindsTitle": "Intelligent Multimodal Memory Assistant — Team Spartans",
+    "award.aiMindsSub": "AI Minds | Build. Deploy. Automate. Hackathon",
+    "award.aiMindsDesc": "Designed and built a structured multimodal long-term memory assistant using locally hosted open-source LLMs (<4B parameters).",
+    "award.b1": "Automatic Ingestion Pipeline: Processing multimodal personal data (text, images, audio, documents).",
+    "award.b2": "Long-Term Semantic Memory: Semantic chunking and persistent embeddings stored in a vector database.",
+    "award.b3": "Local LLM & RAG Architecture: Grounded retrieval, automatic summarization, and action item extraction.",
+    "award.b4": "Hallucination Reduction: Verification mechanisms based on source document retrieval.",
+    "award.b5": "Award Won: 🏆 3rd Place on the podium and 1,000 DT cash prize awarded by the jury.",
+    "award.balTitle": "Annual Participation in Bal des Projets (ESPRIT)",
+    "award.balDesc": "Active annual participation in ESPRIT's flagship exhibition event, showcasing AI engineering projects, embedded systems, and software solutions to academic & industry juries.",
     "stack.eyebrow": "// SKILLS & CERTIFICATIONS",
     "stack.title": "Tech Stack & Certifications",
     "stack.text": "Languages, frameworks, data tools, and certifications mastered.",
